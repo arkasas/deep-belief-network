@@ -2,7 +2,7 @@ import atexit
 from abc import ABCMeta
 
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from sklearn.base import ClassifierMixin, RegressorMixin
 
 from ..models import AbstractSupervisedDBN as BaseAbstractSupervisedDBN
@@ -10,6 +10,8 @@ from ..models import BaseModel
 from ..models import BinaryRBM as BaseBinaryRBM
 from ..models import UnsupervisedDBN as BaseUnsupervisedDBN
 from ..utils import batch_generator, to_categorical
+
+tf.disable_v2_behavior()
 
 
 def close_session():
